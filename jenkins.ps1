@@ -119,7 +119,7 @@ function Test-JenkinsPath {
   $client.Timeout = [TimeSpan]::FromSeconds(15)
   $request = [Net.Http.HttpRequestMessage]::new(
     [Net.Http.HttpMethod]::Get,
-    "$baseUri$Path/api/json"
+    "$baseUri$Path/config.xml"
   )
   $response = $null
   try {
