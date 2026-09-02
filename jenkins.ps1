@@ -20,6 +20,8 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
+Add-Type -AssemblyName System.Net.Http
+
 $repositoryDirectory = $PSScriptRoot
 $landingZoneDirectory = Split-Path $repositoryDirectory -Parent
 $cicdScript = Join-Path $landingZoneDirectory '10-cicd/deploy.ps1'
@@ -111,16 +113,44 @@ function Test-JenkinsPath {
     [string]$Path
   )
 
+  $handler = [Net.Http.HttpClientHandler]::new()
+  $handler.UseProxy = $false
+  $client = [Net.Http.HttpClient]::new($handler)
+  $client.Timeout = [TimeSpan]::FromSeconds(15)
+  $request = [Net.Http.HttpRequestMessage]::new(
+    [Net.Http.HttpMethod]::Get,
+    "$baseUri$Path/api/json"
+  )
+  $response = $null
   try {
-    Invoke-WebRequest -UseBasicParsing -Uri "$baseUri$Path/api/json" -Headers $script:jenkinsHeaders -WebSession $script:jenkinsSession -TimeoutSec 15 | Out-Null
-    return $true
-  }
-  catch {
-    $response = $_.Exception.Response
-    if ($response -and [int]$response.StatusCode -eq 404) {
+    $authorization = "$($script:jenkinsHeaders.Authorization)" -split ' ', 2
+    if ($authorization.Count -ne 2 -or $authorization[0] -cne 'Basic') {
+      throw 'Le contexte authentifie Jenkins est invalide.'
+    }
+    $request.Headers.Authorization = [Net.Http.Headers.AuthenticationHeaderValue]::new(
+      $authorization[0],
+      $authorization[1]
+    )
+    $response = $client.SendAsync($request).GetAwaiter().GetResult()
+    if ([int]$response.StatusCode -eq 200) {
+      return $true
+    }
+    if ([int]$response.StatusCode -eq 404) {
       return $false
     }
+    throw "Statut Jenkins inattendu : $([int]$response.StatusCode)."
+  }
+  catch {
     throw "Impossible de verifier l objet Jenkins $Path."
+  }
+  finally {
+    $authorization = $null
+    if ($response) {
+      $response.Dispose()
+    }
+    $request.Dispose()
+    $client.Dispose()
+    $handler.Dispose()
   }
 }
 
