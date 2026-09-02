@@ -50,7 +50,7 @@ resource "kubernetes_deployment_v1" "this" {
       }
 
       spec {
-        automount_service_account_token  = false
+        automount_service_account_token  = true
         enable_service_links             = false
         termination_grace_period_seconds = 10
 
