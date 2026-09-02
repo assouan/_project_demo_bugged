@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le Chronicle &#x2014; Journal en Ligne</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <span class="top-bar-date" id="currentDate"></span>
+      <div class="top-bar-links"><a href="#">&#xC9;ditions</a><a href="#">Newsletters</a><a href="#">Podcasts</a></div>
+    </div>
+  </div>
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <div class="header-left">
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+        <a href="#" class="logo">
+          <span class="logo-icon"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="36" height="36" rx="4" stroke="currentColor" stroke-width="2.5"/><path d="M12 14h16M12 20h12M12 26h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+          <span class="logo-text"><span class="logo-main">Le Chronicle</span><span class="logo-sub">Journal Ind&#xE9;pendant</span></span>
+        </a>
+      </div>
+      <nav class="header-nav" id="mainNav">
+        <a href="#" class="nav-link active">Accueil</a>
+        <a href="#" class="nav-link">Politique</a>
+        <a href="#" class="nav-link">&#xC9;conomie</a>
+        <a href="#" class="nav-link">Culture</a>
+        <a href="#" class="nav-link">Sport</a>
+        <a href="#" class="nav-link">Science</a>
+        <a href="#" class="nav-link">Monde</a>
+      </nav>
+      <div class="header-right">
+        <button class="search-btn" id="searchBtn" aria-label="Rechercher"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
+        <button class="subscribe-btn">S&#x2019;abonner</button>
+      </div>
+    </div>
+  </header>
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-overlay-inner">
+      <button class="search-close" id="searchClose">&#xD7;</button>
+      <div class="search-container"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input type="text" placeholder="Rechercher un article, un sujet..." /></div>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <a href="#" class="logo mobile-logo"><span class="logo-icon"><svg viewBox="0 0 40 40" fill="none"><rect x="2" y="2" width="36" height="36" rx="4" stroke="currentColor" stroke-width="2.5"/><path d="M12 14h16M12 20h12M12 26h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span><span class="logo-text"><span class="logo-main">Le Chronicle</span></span></a>
+      <button class="mobile-close" id="mobileClose">&#xD7;</button>
+    </div>
+    <nav class="mobile-nav">
+      <a href="#">Accueil</a><a href="#">Politique</a><a href="#">&#xC9;conomie</a><a href="#">Culture</a><a href="#">Sport</a><a href="#">Science</a><a href="#">Monde</a><a href="#">Opinions</a><a href="#">Multim&#xE9;dia</a>
+    </nav>
+    <div class="mobile-menu-footer"><button class="subscribe-btn full-width">S&#x2019;abonner</button></div>
+  </div>
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <main class="site-main">
+    <div class="ticker"><div class="container ticker-inner"><span class="ticker-label">&#x26A1; &#xC0; la une</span><div class="ticker-scroll"><span class="ticker-item">Sommet international sur le climat : accord historique entre 195 pays</span><span class="ticker-separator">&#x25C6;</span><span class="ticker-item">Lancement r&#xE9;ussi de la mission spatiale Europa Clipper</span><span class="ticker-separator">&#x25C6;</span><span class="ticker-item">Innovation : une startup fran&#xE7;aise d&#xE9;veloppe une batterie r&#xE9;volutionnaire</span></div></div></div>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-article">
+          <div class="hero-image-wrapper">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='700' viewBox='0 0 1200 700'%3E%3Cdefs%3E%3ClinearGradient id='city' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a1a2e'/%3E%3Cstop offset='50%25' style='stop-color:%2316213e'/%3E%3Cstop offset='100%25' style='stop-color:%230f3460'/%3E%3C/linearGradient%3E%3ClinearGradient id='sunset' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23f093fb'/%3E%3Cstop offset='30%25' style='stop-color:%23f5576c'/%3E%3Cstop offset='60%25' style='stop-color:%23fda085'/%3E%3Cstop offset='100%25' style='stop-color:%23a18cd1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23city)' width='1200' height='700'/%3E%3Ccircle cx='800' cy='250' r='120' fill='url(%23sunset)' opacity='0.8'/%3E%3Crect x='0' y='480' width='1200' height='220' fill='%231a1a2e' opacity='0.5'/%3E%3Crect x='50' y='380' width='80' height='320' fill='%2316213e' opacity='0.6' rx='4'/%3E%3Crect x='160' y='320' width='60' height='380' fill='%230f3460' opacity='0.5' rx='4'/%3E%3Crect x='250' y='400' width='100' height='300' fill='%231a1a2e' opacity='0.4' rx='4'/%3E%3Crect x='380' y='350' width='70' height='350' fill='%2316213e' opacity='0.5' rx='4'/%3E%3Crect x='480' y='300' width='90' height='400' fill='%230f3460' opacity='0.4' rx='4'/%3E%3Crect x='600' y='370' width='65' height='330' fill='%231a1a2e' opacity='0.5' rx='4'/%3E%3Crect x='700' y='340' width='85' height='360' fill='%2316213e' opacity='0.4' rx='4'/%3E%3Crect x='820' y='390' width='75' height='310' fill='%230f3460' opacity='0.5' rx='4'/%3E%3Crect x='930' y='310' width='95' height='390' fill='%231a1a2e' opacity='0.4' rx='4'/%3E%3Crect x='1050' y='360' width='80' height='340' fill='%2316213e' opacity='0.5' rx='4'/%3E%3Ccircle cx='200' cy='150' r='3' fill='%23fff' opacity='0.6'/%3E%3Ccircle cx='400' cy='100' r='2' fill='%23fff' opacity='0.4'/%3E%3Ccircle cx='650' cy='180' r='4' fill='%23fff' opacity='0.5'/%3E%3Ccircle cx='950' cy='120' r='3' fill='%23fff' opacity='0.7'/%3E%3Crect x='200' y='550' width='120' height='40' rx='8' fill='%23f5576c' opacity='0.7'/%3E%3Crect x='220' y='560' width='80' height='8' rx='4' fill='%23fff'/%3E%3C/svg%3E" alt="Sommet climatique" class="hero-image" />
+            <div class="hero-image-overlay"></div>
+            <span class="hero-badge">Special Report</span>
+          </div>
+          <div class="hero-content">
+            <span class="hero-category">Environnement</span>
+            <h1 class="hero-title">Accord de Paris 2.0 : Le Sommet du Climat Trace une Feuille de Route Historique pour la D&#xE9;cennie &#xE0; Venir</h1>
+            <p class="hero-excerpt">Apr&#xE8;s deux semaines de n&#xE9;gociations intenses, les dirigeants mondiaux ont convenu d&#x2019;un accord ambitieux visant &#xE0; limiter le r&#xE9;chauffement &#xE0; 1,5&#xB0;C. Un tournant d&#xE9;cisif pour la plan&#xE8;te.</p>
+            <div class="hero-meta">
+              <div class="hero-author">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='24' fill='%236366f1'/%3E%3Ccircle cx='24' cy='18' r='8' fill='%23fff'/%3E%3Cellipse cx='24' cy='40' rx='14' ry='10' fill='%23fff'/%3E%3C/svg%3E" alt="Marie Dupont" />
+                <div><span class="author-name">Marie Dupont</span><span class="article-date">29 Ao&#xFB;t 2026 &#xB7; 12 min de lecture</span></div>
+              </div>
+              <div class="hero-actions">
+                <button class="share-btn" aria-label="Partager"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></button>
+                <button class="bookmark-btn" aria-label="Sauvegarder"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>    <section class="latest-news"><div class="container"><div class="section-header"><h2>Derni&#xE8;res Actualit&#xE9;es</h2><a href="#" class="see-all">Voir tout <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div><div class="news-grid">
+      <article class="news-card featured-card">
+        <div class="card-image">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Cdefs%3E%3ClinearGradient id='t1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%230f3460'/%3E%3Cstop offset='100%25' style='stop-color:%23533483'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23t1)' width='600' height='400'/%3E%3Ccircle cx='300' cy='200' r='100' fill='none' stroke='%236366f1' stroke-width='2' opacity='0.6'/%3E%3Ccircle cx='300' cy='200' r='60' fill='none' stroke='%23a78bfa' stroke-width='1.5' opacity='0.4'/%3E%3Ccircle cx='300' cy='200' r='20' fill='%236366f1' opacity='0.8'/%3E%3Cline x1='300' y1='80' x2='300' y2='100' stroke='%23a78bfa' stroke-width='1.5' opacity='0.5'/%3E%3Cline x1='300' y1='300' x2='300' y2='320' stroke='%23a78bfa' stroke-width='1.5' opacity='0.5'/%3E%3Cline x1='180' y1='200' x2='200' y2='200' stroke='%23a78bfa' stroke-width='1.5' opacity='0.5'/%3E%3Cline x1='400' y1='200' x2='420' y2='200' stroke='%23a78bfa' stroke-width='1.5' opacity='0.5'/%3E%3Ctext x='300' y='210' text-anchor='middle' fill='%23fff' font-size='24' opacity='0.8'%3EAI%3C/text%3E%3C/svg%3E" alt="IA" />
+          <span class="card-featured-badge">&#x2B50; &#xC0; la une</span>
+        </div>
+        <div class="card-body">
+          <span class="card-category tech">Technologie</span>
+          <h3 class="card-title"><a href="#">L&#x2019;Intelligence Artificielle G&#xE9;n&#xE9;rative R&#xE9;volutionne le Diagnostic M&#xE9;dical en 2026</a></h3>
+          <p class="card-excerpt">Les nouveaux mod&#xE8;les d&#x2019;IA surpassent les sp&#xE9;cialistes dans la d&#xE9;tection pr&#xE9;coce de cancers rares, ouvrant la voie &#xE0; une m&#xE9;decine plus pr&#xE9;cise et accessible.</p>
+          <div class="card-meta"><div class="card-author"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%2310b981'/%3E%3Ccircle cx='16' cy='12' r='6' fill='%23fff'/%3E%3Cellipse cx='16' cy='28' rx='10' ry='7' fill='%23fff'/%3E%3C/svg%3E" alt="Pierre" /><span>Pierre Martin</span></div><span class="card-date">29 Ao&#xFB;t &#xB7; 8 min</span></div>
+        </div>
+      </article>
+      <article class="news-card">
+        <div class="card-image">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Cdefs%3E%3ClinearGradient id='t2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23f093fb'/%3E%3Cstop offset='100%25' style='stop-color:%23f5576c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23t2)' width='600' height='400'/%3E%3Crect x='150' y='100' width='300' height='200' rx='8' fill='none' stroke='%23fff' stroke-width='2' opacity='0.3'/%3E%3Cpolygon points='240,165 240,195 270,180' fill='%23fff' opacity='0.5'/%3E%3C/svg%3E" alt="Culture" />
+        </div>
+        <div class="card-body">
+          <span class="card-category culture">Culture</span>
+          <h3 class="card-title"><a href="#">Festival d&#x2019;Avignon 2026 : L&#x2019;&#xE9;dition la Plus Audacieuse de l&#x2019;Histoire</a></h3>
+          <p class="card-excerpt">Cette ann&#xE9;e, le festival repousse les limites du th&#xE9;&#xE2;tre avec des performances immersives et des cr&#xE9;ations num&#xE9;riques in&#xE9;dites.</p>
+          <div class="card-meta"><div class="card-author"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23ec4899'/%3E%3Ccircle cx='16' cy='12' r='6' fill='%23fff'/%3E%3Cellipse cx='16' cy='28' rx='10' ry='7' fill='%23fff'/%3E%3C/svg%3E" alt="Sophie" /><span>Sophie Laurent</span></div><span class="card-date">28 Ao&#xFB;t &#xB7; 6 min</span></div>
+        </div>
+      </article>
+      <article class="news-card">
+        <div class="card-image">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Cdefs%3E%3ClinearGradient id='t3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%230c0c1d'/%3E%3Cstop offset='100%25' style='stop-color:%231a1a4e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23t3)' width='600' height='400'/%3E%3Ccircle cx='450' cy='120' r='50' fill='%23f59e0b' opacity='0.6'/%3E%3Ccircle cx='250' cy='80' r='2' fill='%23fff' opacity='0.8'/%3E%3Ccircle cx='350' cy='150' r='1.5' fill='%23fff' opacity='0.6'/%3E%3Ccircle cx='500' cy='250' r='2.5' fill='%23fff' opacity='0.7'/%3E%3Crect x='300' y='200' width='4' height='60' rx='2' fill='%23fff' opacity='0.6'/%3E%3Cpolygon points='295,200 305,200 300,180' fill='%23fff' opacity='0.8'/%3E%3C/svg%3E" alt="Espace" />
+        </div>
+        <div class="card-body">
+          <span class="card-category science">Science</span>
+          <h3 class="card-title"><a href="#">Mars 2026 : Les Premi&#xE8;res Photos Haute R&#xE9;solution de la Nouvelle Base Europ&#xE9;enne</a></h3>
+          <p class="card-excerpt">L&#x2019;Agence spatiale europ&#xE9;enne d&#xE9;voile des images spectaculaires de sa nouvelle installation sur le sol martien.</p>
+          <div class="card-meta"><div class="card-author"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%233b82f6'/%3E%3Ccircle cx='16' cy='12' r='6' fill='%23fff'/%3E%3Cellipse cx='16' cy='28' rx='10' ry='7' fill='%23fff'/%3E%3C/svg%3E" alt="Lucas" /><span>Lucas Bernard</span></div><span class="card-date">28 Ao&#xFB;t &#xB7; 5 min</span></div>
+        </div>
+      </article>
+      <article class="news-card">
+        <div class="card-image">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Cdefs%3E%3ClinearGradient id='t4' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2310b981'/%3E%3Cstop offset='100%25' style='stop-color:%23059669'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23t4)' width='600' height='400'/%3E%3Ccircle cx='300' cy='200' r='80' fill='none' stroke='%23fff' stroke-width='3' opacity='0.3'/%3E%3Ccircle cx='300' cy='200' r='12' fill='%23fff' opacity='0.5'/%3E%3Cline x1='220' y1='200' x2='380' y2='200' stroke='%23fff' stroke-width='2' opacity='0.4'/%3E%3Cline x1='300' y1='120' x2='300' y2='280' stroke='%23fff' stroke-width='2' opacity='0.4'/%3E%3C/svg%3E" alt="Sport" />
+        </div>
+        <div class="card-body">
+          <span class="card-category sport">Sport</span>
+          <h3 class="card-title"><a href="#">Jeux Olympiques 2028 : Los Angeles D&#xE9;voile les Sites In&#xE9;dits de la Comp&#xE9;tition</a></h3>
+          <p class="card-excerpt">Le comit&#xE9; d&#x2019;organisation pr&#xE9;sente des installations ultra-modernes m&#xE;lant innovation technologique et durabilit&#xE9; environnementale.</p>
+          <div class="card-meta"><div class="card-author"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23f59e0b'/%3E%3Ccircle cx='16' cy='12' r='6' fill='%23fff'/%3E%3Cellipse cx='16' cy='28' rx='10' ry='7' fill='%23fff'/%3E%3C/svg%3E" alt="Emma" /><span>Emma Petit</span></div><span class="card-date">27 Ao&#xFB;t &#xB7; 7 min</span></div>
+        </div>
+      </article>
+      <article class="news-card">
+        <div class="card-image">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Cdefs%3E%3ClinearGradient id='t5' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%236366f1'/%3E%3Cstop offset='100%25' style='stop-color:%238b5cf6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23t5)' width='600' height='400'/%3E%3Cpath d='M100 300 L200 250 L300 280 L400 200 L500 220 L550 180' fill='none' stroke='%23fff' stroke-width='2' opacity='0.4'/%3E%3Crect x='100' y='280' width='40' height='80' rx='4' fill='%23fff' opacity='0.15'/%3E%3Crect x='200' y='230' width='40' height='130' rx='4' fill='%23fff' opacity='0.2'/%3E%3Crect x='300' y='260' width='40' height='100' rx='4' fill='%23fff' opacity='0.18'/%3E%3Crect x='400' y='180' width='40' height='180' rx='4' fill='%23fff' opacity='0.25'/%3E%3Crect x='500' y='200' width='40' height='160' rx='4' fill='%23fff' opacity='0.22'/%3E%3C/svg%3E" alt="Economie" />
+        </div>
+        <div class="card-body">
+          <span class="card-category economy">&#xC9;conomie</span>
+          <h3 class="card-title"><a href="#">La Monnaie Num&#xE9;rique Europ&#xE9;enne : Quel Impact sur l&#x2019;&#xC9;conomie Mondiale ?</a></h3>
+          <p class="card-excerpt">Le digital euro entre en phase avanc&#xE9;e de test. &#xC9;conomistes et banquiers d&#xE9;battent des implications de cette nouvelle forme de monnaie.</p>
+          <div class="card-meta"><div class="card-author"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23f97316'/%3E%3Ccircle cx='16' cy='12' r='6' fill='%23fff'/%3E%3Cellipse cx='16' cy='28' rx='10' ry='7' fill='%23fff'/%3E%3C/svg%3E" alt="Thomas" /><span>Thomas Roux</span></div><span class="card-date">27 Ao&#xFB;t &#xB7; 10 min</span></div>
+        </div>
+      </article>
+      <article class="news-card">
+        <div class="card-image">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Cdefs%3E%3ClinearGradient id='t6' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ec4899'/%3E%3Cstop offset='100%25' style='stop-color:%23f43f5e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23t6)' width='600' height='400'/%3E%3Cpath d='M300 150 C300 150 250 100 200 130 C150 160 180 220 300 300 C420 220 450 160 400 130 C350 100 300 150 300 150Z' fill='%23fff' opacity='0.3'/%3E%3C/svg%3E" alt="Sante" />
+        </div>
+        <div class="card-body">
+          <span class="card-category health">Sant&#xE9;</span>
+          <h3 class="card-title"><a href="#">D&#xE9;couverte Majeure : Un Nouveau Traitement contre la Maladie d&#x2019;Alzheimer Montre des R&#xE9;sultats Prometteurs</a></h3>
+          <p class="card-excerpt">Une &#xE9;quipe de chercheurs franco-britanniques annonce une perc&#xE9;e th&#xE9;rapeutique qui pourrait transformer la prise en charge de la maladie.</p>
+          <div class="card-meta"><div class="card-author"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%2314b8a6'/%3E%3Ccircle cx='16' cy='12' r='6' fill='%23fff'/%3E%3Cellipse cx='16' cy='28' rx='10' ry='7' fill='%23fff'/%3E%3C/svg%3E" alt="Dr Moreau" /><span>Dr. Claire Moreau</span></div><span class="card-date">26 Ao&#xFB;t &#xB7; 9 min</span></div>
+        </div>
+      </article>
+    </div></div></section>    <section class="opinion-section"><div class="container"><div class="section-header"><h2><span class="section-icon">&#x1F4AC;</span> Opinions &amp; Tribunes</h2></div><div class="opinion-grid">
+      <div class="opinion-card">
+        <div class="opinion-header">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%236366f1'/%3E%3Ccircle cx='32' cy='24' r='12' fill='%23fff'/%3E%3Cellipse cx='32' cy='52' rx='18' ry='14' fill='%23fff'/%3E%3C/svg%3E" alt="JP" class="opinion-avatar" />
+          <div><span class="opinion-name">Jean-Pierre Dubois</span><span class="opinion-role">Professeur d&#x2019;&#xC9;conomie</span></div>
+        </div>
+        <h3 class="opinion-title">&#xAB; La transition &#xE9;cologique n&#x2019;est pas un co&#xBB;ut, c&#x2019;est le plus grand investissement de notre si&#xE8;cle &#xBB;</h3>
+        <p class="opinion-excerpt">Les &#xE9;conomistes qui r&#xE9;sistent &#xE0; l&#x2019;id&#xE9;e d&#x2019;une croissance verte se trompent de d&#xE9;bat. L&#x2019;heure n&#x2019;est plus aux compromis, mais &#xE0; l&#x2019;action.</p>
+        <a href="#" class="opinion-link">Lire la tribune &#x2192;</a>
+      </div>
+      <div class="opinion-card">
+        <div class="opinion-header">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23ec4899'/%3E%3Ccircle cx='32' cy='24' r='12' fill='%23fff'/%3E%3Cellipse cx='32' cy='52' rx='18' ry='14' fill='%23fff'/%3E%3C/svg%3E" alt="AB" class="opinion-avatar" />
+          <div><span class="opinion-name">Amina Benali</span><span class="opinion-role">Directrice de Recherche en IA</span></div>
+        </div>
+        <h3 class="opinion-title">&#xAB; L&#x2019;IA ne remplacera pas les humains, mais les humains qui utilisent l&#x2019;IA remplaceront les autres &#xBB;</h3>
+        <p class="opinion-excerpt">Face aux craintes l&#xE9;gitimes, il faut construire un cadre &#xE9;thique et &#xE9;ducatif qui place l&#x2019;humain au c&#x153;ur de la transformation num&#xE9;rique.</p>
+        <a href="#" class="opinion-link">Lire la tribune &#x2192;</a>
+      </div>
+      <div class="opinion-card">
+        <div class="opinion-header">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%2310b981'/%3E%3Ccircle cx='32' cy='24' r='12' fill='%23fff'/%3E%3Cellipse cx='32' cy='52' rx='18' ry='14' fill='%23fff'/%3E%3C/svg%3E" alt="ML" class="opinion-avatar" />
+          <div><span class="opinion-name">Marc Lef&#xE8;vre</span><span class="opinion-role">Correspondant Diplomatique</span></div>
+        </div>
+        <h3 class="opinion-title">&#xAB; L&#x2019;Europe doit se r&#xE9;armer intellectuellement pour redevenir un acteur g&#xE9;opolitique &#xBB;</h3>
+        <p class="opinion-excerpt">Dans un monde multipolaire, l&#x2019;Union europ&#xE9;enne doit trouver sa voix propre et cesser de jouer les suiveurs.</p>
+        <a href="#" class="opinion-link">Lire la tribune &#x2192;</a>
+      </div>
+    </div></div></section>
+    <section class="newsletter-section"><div class="container"><div class="newsletter-card">
+      <div class="newsletter-content">
+        <span class="newsletter-icon">&#x2709;&#xFE0F;</span>
+        <h2>Restez Inform&#xE9;</h2>
+        <p>Recevez chaque matin les meilleurs articles du Chronicle directement dans votre bo&#xEE;te mail. Gratuit, sans spam.</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" placeholder="Votre adresse email" required />
+          <button type="submit" class="subscribe-btn-large">S&#x2019;inscrire</button>
+        </form>
+        <p class="newsletter-note">D&#xE9;j&#xE0; 125 000 abonnés. D&#xE9;sabonnement en un clic.</p>
+      </div>
+      <div class="newsletter-decoration">
+        <div class="deco-circle"></div><div class="deco-circle"></div><div class="deco-circle"></div>
+      </div>
+    </div></div></section>
+    <section class="trending-section"><div class="container"><div class="trending-layout">
+      <div class="trending-main"><div class="section-header"><h2><span class="section-icon">&#x1F4C8;</span> En Tendance</h2></div><div class="trending-list">
+        <a href="#" class="trending-item"><span class="trending-number">01</span><div><h4>&#xC9;nergie : La Fusion Nucl&#xE9;aire Atteint un Nouveau Record de Performance</h4><span class="trending-category">Science</span></div></a>
+        <a href="#" class="trending-item"><span class="trending-number">02</span><div><h4>Cryptomonnaies : La BCE Lance un Appel d&#x2019;Offres pour le Digital Euro</h4><span class="trending-category">&#xC9;conomie</span></div></a>
+        <a href="#" class="trending-item"><span class="trending-number">03</span><div><h4>Cin&#xE9;ma : Le Film Fran&#xE7;ais &#xAB; Horizon &#xBB; Remporte la Palme d&#x2019;Or</h4><span class="trending-category">Culture</span></div></a>
+        <a href="#" class="trending-item"><span class="trending-number">04</span><div><h4>R&#xE9;chauffement : Les Oc&#xE9;ans Atteignent des Temp&#xE9;ratures Historiques</h4><span class="trending-category">Environnement</span></div></a>
+        <a href="#" class="trending-item"><span class="trending-number">05</span><div><h4>Espace : SpaceX R&#xE9;ussit le Premier atterrissage sur la Lune depuis 50 ans</h4><span class="trending-category">Science</span></div></a>
+      </div></div>
+      <aside class="trending-sidebar">
+        <div class="sidebar-card"><h3>Populaires</h3>
+          <div class="popular-item"><span class="popular-num">1</span><a href="#">L&#x2019;impact du t&#xE9;l&#xE9;travail sur l&#x2019;urbanisme fran&#xE7;ais</a><span class="popular-likes">&#x2764;&#xFE0F; 2.4k</span></div>
+          <div class="popular-item"><span class="popular-num">2</span><a href="#">Les start-ups fran&#xE7;aises les plus valoris&#xE9;es de 2026</a><span class="popular-likes">&#x2764;&#xFE0F; 1.8k</span></div>
+          <div class="popular-item"><span class="popular-num">3</span><a href="#">Pourquoi le march&#xE9; immobilier se stabilise enfin</a><span class="popular-likes">&#x2764;&#xFE0F; 1.2k</span></div>
+          <div class="popular-item"><span class="popular-num">4</span><a href="#">La r&#xE9;volution des v&#xE9;hicules &#xE9;lectriques en zone rurale</a><span class="popular-likes">&#x2764;&#xFE0F; 956</span></div>
+          <div class="popular-item"><span class="popular-num">5</span><a href="#">Les 10 livres &#xE0; lire absolument cet &#xE9;t&#xE9;</a><span class="popular-likes">&#x2764;&#xFE0F; 873</span></div>
+        </div>
+        <div class="sidebar-card tags-card"><h3>Mots-cl&#xE9;s</h3><div class="tags">
+          <span class="tag">Intelligence Artificielle</span><span class="tag">Climat</span><span class="tag">&#xC9;lections 2026</span><span class="tag">Espace</span><span class="tag">&#xC9;nergie verte</span><span class="tag">Culture</span><span class="tag">Start-ups</span><span class="tag">Sant&#xE9;</span><span class="tag">Europe</span><span class="tag">Innovation</span>
+        </div></div>
+      </aside>
+    </div></div></section>
+  </main>
+  <footer class="site-footer"><div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo footer-logo">
+          <span class="logo-icon"><svg viewBox="0 0 40 40" fill="none"><rect x="2" y="2" width="36" height="36" rx="4" stroke="currentColor" stroke-width="2.5"/><path d="M12 14h16M12 20h12M12 26h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+          <span class="logo-text"><span class="logo-main">Le Chronicle</span><span class="logo-sub">Journal Ind&#xE9;pendant</span></span>
+        </a>
+        <p>Un journalisme ind&#xE9;pendant, rigoureux et responsable. Depuis 1892, nous &#xE9;clairons les sujets qui comptent.</p>
+        <div class="social-links">
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Rubriques</h4><a href="#">Politique</a><a href="#">&#xC9;conomie</a><a href="#">Culture</a><a href="#">Sport</a><a href="#">Science</a><a href="#">Monde</a><a href="#">Opinions</a></div>
+      <div class="footer-col"><h4>Services</h4><a href="#">S&#x2019;abonner</a><a href="#">Newsletters</a><a href="#">Podcasts</a><a href="#">Applications</a><a href="#">Archive</a><a href="#">RSS</a></div>
+      <div class="footer-col"><h4>&#xC0; propos</h4><a href="#">Notre mission</a><a href="#">&#xC9;quipe</a><a href="#">Contact</a><a href="#">Recrutement</a><a href="#">Mentions l&#xE9;gales</a><a href="#">Politique de confidentialit&#xE9;</a></div>
+    </div>
+    <div class="footer-bottom"><p>&#xA9; 2026 Le Chronicle. Tous droits r&#xE9;serv&#xE9;s.</p><div class="footer-bottom-links"><a href="#">Conditions d&#x2019;utilisation</a><a href="#">Cookies</a><a href="#">G&#xE9;rer les cookies</a></div></div>
+  </div></footer>
+  <button class="back-to-top" id="backToTop" aria-label="Retour en haut"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg></button>
+  <script src="script.js"></script>
+</body>
+</html>
