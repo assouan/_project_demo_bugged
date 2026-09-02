@@ -25,7 +25,7 @@ spec:
       type: RuntimeDefault
   containers:
     - name: jnlp
-      image: eclipse-temurin:21-jre-alpine-3.24@sha256:974b08960c5d96694c780e65b2d5705268ab1e1ca1a0dd0caf4ba6c3fe34d699
+      image: eclipse-temurin:21-jre-jammy@sha256:eebd356ad7358b7094758e5787a6726f332917cfd56feab6457c56dab895cdbf
       imagePullPolicy: IfNotPresent
       workingDir: /home/jenkins/agent
       resources:
