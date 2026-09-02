@@ -66,11 +66,18 @@ function Get-JenkinsPassword {
   }
   $values = @($output | ForEach-Object { "$_".Trim() } | Where-Object { $_ })
   $null = $output
-  if ($values.Count -ne 1 -or $values[0].Length -lt 16 -or $values[0].Length -gt 256) {
-    $null = $values
+  $candidate = $values | Select-Object -Last 1
+  $null = $values
+  if (
+    -not $candidate -or
+    $candidate.Length -lt 16 -or
+    $candidate.Length -gt 256 -or
+    $candidate -cnotmatch '^[!-~]+$'
+  ) {
+    $candidate = $null
     throw 'Le credential administrateur Jenkins est invalide.'
   }
-  $values[0]
+  $candidate
 }
 
 function Initialize-JenkinsSession {
