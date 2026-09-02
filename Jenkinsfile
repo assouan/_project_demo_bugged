@@ -49,7 +49,7 @@ spec:
         - name: runtime
           mountPath: /tmp
     - name: git
-      image: alpine/git:2.54.0@sha256:d301ddc314bb6531726d37fbd435b5d736296ad0f77e54246ae78ef74031729d
+      image: cgr.dev/chainguard/git:latest-dev@sha256:648cc1eb3817f2076cc06cc5e401978468878c41d2391e83ec05a07bb11989b7
       imagePullPolicy: IfNotPresent
       command: ["sleep"]
       args: ["99d"]
@@ -99,7 +99,7 @@ spec:
         - name: runtime
           mountPath: /tmp
     - name: terraform
-      image: hashicorp/terraform:1.15.8@sha256:7ae513256f7ce67879e218ae8593d6fbe216ec9e123abe6c94e4e10704857963
+      image: cgr.dev/chainguard/wolfi-base:latest@sha256:7e62cecd3c5712dba6e52c5260afb8f9d7a23b9bbcdd26ad7508a811e74b766d
       imagePullPolicy: IfNotPresent
       command: ["sleep"]
       args: ["99d"]
@@ -227,13 +227,41 @@ git rev-parse HEAD''',
       }
     }
 
+    stage('Terraform toolchain') {
+      steps {
+        container('python') {
+          sh '''rm -rf "$WORKSPACE/.terraform-toolchain"
+python scripts/prepare_terraform.py \
+  --manifest terraform-toolchain.json \
+  --output-directory "$WORKSPACE/.terraform-toolchain"'''
+        }
+        container('terraform') {
+          sh '''"$WORKSPACE/.terraform-toolchain/terraform" version -json \
+  > /tmp/terraform-version.json'''
+        }
+        container('python') {
+          sh '''python - <<'PY'
+import json
+from pathlib import Path
+
+
+version = json.loads(Path("/tmp/terraform-version.json").read_text(encoding="utf-8"))
+if version.get("terraform_version") != "1.15.9":
+    raise SystemExit("terraform toolchain version mismatch")
+PY'''
+        }
+      }
+    }
+
     stage('Terraform validation') {
       steps {
         container('terraform') {
-          sh '''terraform version
+          withEnv(["PATH=${env.WORKSPACE}/.terraform-toolchain:${env.PATH}"]) {
+            sh '''terraform version
 terraform fmt -check -recursive -diff
 terraform init -reconfigure -input=false -lockfile=readonly -backend-config=backend.hcl
 terraform validate'''
+          }
         }
       }
     }
@@ -241,7 +269,8 @@ terraform validate'''
     stage('Plan and execute') {
       steps {
         container('terraform') {
-          sh '''mkdir -p "$WORKSPACE/.terraform-data"
+          withEnv(["PATH=${env.WORKSPACE}/.terraform-toolchain:${env.PATH}"]) {
+            sh '''mkdir -p "$WORKSPACE/.terraform-data"
 plan_file="$WORKSPACE/.terraform-data/change.tfplan"
 if [ "$ACTION" = "Destroy" ]; then
   terraform plan -destroy -input=false -lock-timeout=2m -out="$plan_file"
@@ -249,6 +278,7 @@ else
   terraform plan -input=false -lock-timeout=2m -out="$plan_file"
 fi
 terraform apply -input=false -lock-timeout=2m -auto-approve "$plan_file"'''
+          }
         }
       }
     }

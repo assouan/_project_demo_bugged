@@ -22,6 +22,7 @@ EXPECTED_FILES = {
     "providers.tf",
     "script.js",
     "styles.css",
+    "terraform-toolchain.json",
     "terraform.tfvars.json",
     "variables.tf",
     "versions.tf",
@@ -73,7 +74,7 @@ def validate(root):
     require("password" not in backend.lower(), "forbidden:backend-credential", errors)
 
     versions = read_text(root, "versions.tf", errors)
-    require('required_version = "= 1.15.8"' in versions, "invalid:terraform-version", errors)
+    require('required_version = "= 1.15.9"' in versions, "invalid:terraform-version", errors)
     require('backend "kubernetes" {}' in versions, "invalid:backend-type", errors)
     require('version = "~> 3.2.0"' in versions, "invalid:provider-version", errors)
 
@@ -124,6 +125,9 @@ def validate(root):
         "alten.io/access-profile: tenant-deployer",
         "terraform init -reconfigure -input=false -lockfile=readonly -backend-config=backend.hcl",
         "X-Alten-Signature",
+        "scripts/prepare_terraform.py",
+        "terraform-toolchain.json",
+        'withEnv(["PATH=${env.WORKSPACE}/.terraform-toolchain:${env.PATH}"])',
     ):
         require(requirement in pipeline, "invalid:pipeline-contract", errors)
 

@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "version": "1.15.9",
+  "platform": "linux_amd64",
+  "release_url": "https://releases.hashicorp.com/terraform/1.15.9/terraform_1.15.9_linux_amd64.zip",
+  "archive_sha256": "76edd0b22d2f27d3d2e097cd793209646f719cf60f02ff3af626b07361137da1",
+  "binary_sha256": "c39d41adb17963bac5dd610ad47815dd81e945371a7cabc344a45d63b1b093bd",
+  "runner_image": "cgr.dev/chainguard/wolfi-base:latest@sha256:7e62cecd3c5712dba6e52c5260afb8f9d7a23b9bbcdd26ad7508a811e74b766d"
+}
