@@ -1,0 +1,10 @@
+.terraform/
+.terraform-data/
+*.tfplan
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+__pycache__/
+*.py[cod]
+
