@@ -189,31 +189,31 @@ spec:
             error('CONFIRM_DESTROY doit etre active pour une destruction.')
           }
           env.REQUESTED_GIT_REF = requestedRef
+          env.REQUESTED_REMOTE_REF = requestedRef ==~ /[0-9a-f]{40}/
+            ? requestedRef
+            : (requestedRef.startsWith('refs/') ? requestedRef : "refs/heads/${requestedRef}")
         }
       }
     }
 
     stage('Checkout') {
       steps {
+        deleteDir()
         container('git') {
           script {
-            def branchSpec = env.REQUESTED_GIT_REF.startsWith('refs/') || env.REQUESTED_GIT_REF ==~ /[0-9a-f]{40}/
-              ? env.REQUESTED_GIT_REF
-              : "*/${env.REQUESTED_GIT_REF}"
-            def checkoutResult = checkout([
-              $class: 'GitSCM',
-              branches: [[name: branchSpec]],
-              doGenerateSubmoduleConfigurations: false,
-              extensions: [[$class: 'CloneOption', depth: 20, honorRefspec: true, noTags: false, shallow: true]],
-              userRemoteConfigs: [[
-                refspec: '+refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*',
-                url: 'https://github.com/assouan/_project_demo_bugged.git',
-              ]],
-            ])
-            if (!(checkoutResult.GIT_COMMIT ==~ /[0-9a-f]{40}/)) {
+            def commitSha = sh(
+              returnStdout: true,
+              script: '''set -eu
+git init -q .
+git remote add origin https://github.com/assouan/_project_demo_bugged.git
+git -c protocol.version=2 fetch --depth=20 --no-tags origin "$REQUESTED_REMOTE_REF" >&2
+git -c advice.detachedHead=false checkout --detach -q FETCH_HEAD
+git rev-parse HEAD''',
+            ).trim()
+            if (!(commitSha ==~ /[0-9a-f]{40}/)) {
               error('Le checkout ne fournit pas de SHA Git valide.')
             }
-            env.DEPLOYMENT_GIT_COMMIT = checkoutResult.GIT_COMMIT
+            env.DEPLOYMENT_GIT_COMMIT = commitSha
           }
         }
       }
